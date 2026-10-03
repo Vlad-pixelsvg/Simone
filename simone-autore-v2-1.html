@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Simone · Cronache dal regno sepolto</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=IM+Fell+English:ital@0;1&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
+<style>
+:root{
+ --parch:#e8d9b5;--parch2:#dcc89a;--ink:#2a1d14;--muted:#5d4733;
+ --red:#8c1d18;--lapis:#1f3a6e;--gold:#b8892b;--gold2:#e2b659;--forest:#2f4a34;--line:rgba(42,29,20,.35);
+ --serif:"IM Fell English",Georgia,serif;--cap:"Cinzel",Georgia,serif;--black:"UnifrakturMaguntia","Cinzel",serif;
+ box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--parch:#1c1713;--parch2:#271f19;--ink:#ecdcb8;--muted:#b9a581;--red:#c4453a;--lapis:#4a73c4;--gold:#d3a444;--gold2:#f0cb7a;--forest:#7ea887;--line:rgba(236,220,184,.28)}}
+:root[data-theme="dark"]{--parch:#1c1713;--parch2:#271f19;--ink:#ecdcb8;--muted:#b9a581;--red:#c4453a;--lapis:#4a73c4;--gold:#d3a444;--gold2:#f0cb7a;--forest:#7ea887;--line:rgba(236,220,184,.28)}
+html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 70px)}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--parch);color:var(--ink);font:1.2rem/1.65 var(--serif);
+ background-image:radial-gradient(ellipse at 50% 0,transparent 55%,rgba(90,60,20,.18)),repeating-linear-gradient(0deg,transparent 0 3px,rgba(90,60,20,.035) 3px 4px)}
+a{color:inherit}:focus-visible{outline:2px solid var(--red);outline-offset:3px}
+.w{max-width:1100px;margin:0 auto;padding:0 1.4rem}
+h1,h2,h3{font-family:var(--black);font-weight:400;margin:0;line-height:1.05}
+.cap{font-family:var(--cap);letter-spacing:.14em;text-transform:uppercase;font-size:.85rem;color:var(--red)}
+
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--lapis);color:#f3e6c2;border-bottom:3px double var(--gold2)}
+nav .w{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;padding-top:.7rem;padding-bottom:.7rem}
+nav b{font:700 1.15rem var(--cap);letter-spacing:.2em}
+nav ul{display:flex;gap:1.3rem;margin:0;padding:0;list-style:none;font:500 .8rem var(--cap);letter-spacing:.12em;text-transform:uppercase}
+nav a{text-decoration:none}nav a:hover{color:var(--gold2)}
+nav .w{flex-wrap:nowrap}nav ul{flex-wrap:nowrap;white-space:nowrap}
+.tg{display:none;background:none;border:2px solid var(--gold2);color:#f3e6c2;font:700 1.3rem/1 var(--cap);width:44px;height:44px;cursor:pointer}
+@media (max-width:860px){
+ nav .w{flex-wrap:wrap;padding-top:.45rem;padding-bottom:.45rem}
+ .tg{display:block}
+ nav ul{display:none;flex-direction:column;gap:0;width:100%;white-space:normal;border-top:1px solid var(--gold2);margin-top:.45rem}
+ nav.open ul{display:flex}
+ nav ul li a{display:block;padding:.95rem .2rem;font-size:.95rem;border-bottom:1px solid rgba(226,182,89,.3)}
+}
+
+/* HERO */
+.hero{padding:4.5rem 0 3.5rem;text-align:center;position:relative}
+.frame{max-width:860px;margin:0 auto;padding:3rem 1.6rem;border:2px solid var(--gold);outline:1px solid var(--gold);outline-offset:-10px;background:linear-gradient(var(--parch2),var(--parch2)) padding-box;position:relative}
+.frame::before,.frame::after{content:"❖";position:absolute;color:var(--red);font-size:1.5rem;background:var(--parch2);padding:0 .4rem;left:50%;transform:translateX(-50%)}
+.frame::before{top:-1rem}.frame::after{bottom:-1rem}
+.hero h1{font-size:clamp(3rem,10vw,6.4rem);color:var(--red);margin:.8rem 0}
+.hero p{max-width:34rem;margin:0 auto 1.8rem;font-style:italic;font-size:1.35rem}
+.btn{display:inline-block;padding:.8rem 1.6rem;font:700 .85rem var(--cap);letter-spacing:.14em;text-transform:uppercase;text-decoration:none;border:2px solid var(--red);color:var(--red);margin:.3rem}
+.btn.s{background:var(--red);color:#f6e8c6}.btn:hover{background:var(--gold);border-color:var(--gold);color:#1b120a}
+.crest{width:84px;height:auto;display:block;margin:0 auto}
+
+.orn{display:flex;align-items:center;gap:1rem;color:var(--gold);margin:0 auto;max-width:520px}
+.orn::before,.orn::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+
+section{padding:5rem 0}
+.head{text-align:center;margin-bottom:3rem}
+.head h2{font-size:clamp(2.4rem,6vw,3.8rem);color:var(--lapis);margin-top:.4rem}
+
+/* LIBRO */
+.book{display:grid;grid-template-columns:minmax(230px,330px) 1fr;gap:4rem;align-items:center}
+.vol{aspect-ratio:2/3;position:relative;background:radial-gradient(circle at 50% 38%,#2b4d8f,#14284f 70%);border:6px solid var(--gold);border-left-width:16px;box-shadow:14px 18px 0 rgba(42,29,20,.28);color:#f3e6c2;display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:1.8rem 1rem;text-align:center;transform:rotate(-2deg)}
+.vol::before{content:"";position:absolute;inset:8px;border:1px solid var(--gold2);pointer-events:none}
+.vol h3{font-size:2.5rem;color:var(--gold2)}.vol small{font:500 .75rem var(--cap);letter-spacing:.3em}
+.meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:.8rem;margin:1.8rem 0}
+.meta div{border-top:3px double var(--gold);padding-top:.5rem}.meta b{display:block;font:700 .75rem var(--cap);letter-spacing:.15em;color:var(--red);text-transform:uppercase}
+.tags span{display:inline-block;border:1px solid var(--forest);color:var(--forest);padding:.1rem .8rem;margin:0 .4rem .4rem 0;font-style:italic}
+
+/* ESTRATTO */
+.ext{background:var(--parch2);border-block:3px double var(--gold)}
+.page{max-width:900px;margin:0 auto;columns:2 22rem;column-gap:3rem;column-rule:1px solid var(--line);text-align:justify;hyphens:auto}
+.page p{margin:0 0 1rem}
+.page p:first-child::first-letter{font:400 5.2rem/.8 var(--black);color:var(--red);float:left;padding:.35rem .6rem 0 0}
+.note{text-align:center;color:var(--muted);font-style:italic;margin-top:2rem}
+
+/* PERSONAGGI */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.6rem}
+.card{border:2px solid var(--gold);padding:1.6rem 1.3rem;text-align:center;position:relative;background:var(--parch2)}
+.card::before{content:"";position:absolute;inset:6px;border:1px solid var(--line);pointer-events:none}
+.card svg{width:64px;height:64px;margin-bottom:.4rem}
+.card h3{font-size:2rem;color:var(--red)}
+.card .cap{display:block;margin:.3rem 0 .8rem;color:var(--lapis)}
+.card p{margin:0;font-size:1.08rem}
+
+/* MAPPA */
+.mapbox{border:2px solid var(--gold);padding:.6rem;background:var(--parch2)}
+.mapbox svg{display:block;width:100%;height:auto}
+.mapbox text{font-family:var(--cap);fill:var(--ink)}
+
+/* DALLO SCAVO */
+.tl{max-width:760px;margin:0 auto;border-left:3px solid var(--gold);padding-left:2rem}
+.tl div{position:relative;padding-bottom:2rem}
+.tl div::before{content:"";position:absolute;left:-2.65rem;top:.5rem;width:16px;height:16px;background:var(--red);transform:rotate(45deg);border:2px solid var(--gold2)}
+.tl h3{font-size:1.9rem;color:var(--lapis)}.tl p{margin:.3rem 0 0}
+
+/* AUTORE */
+.auth{background:var(--forest);color:#f3e6c2}
+:root[data-theme="dark"] .auth,.auth{--ink:#f3e6c2}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .auth{background:#16231a}}
+.ab{display:grid;grid-template-columns:minmax(220px,300px) 1fr;gap:3.5rem;align-items:center}
+.por{aspect-ratio:3/4;border:3px solid var(--gold2);outline:1px solid var(--gold2);outline-offset:-10px;border-radius:150px 150px 0 0;display:grid;place-items:center;text-align:center;padding:1rem;color:var(--gold2);font-style:italic;background:rgba(0,0,0,.18)}
+.auth h2{font-size:clamp(2.4rem,6vw,3.8rem);color:var(--gold2);margin:.4rem 0 1rem}
+.auth .cap{color:#f0cb7a}.auth p{max-width:36rem}
+.auth ul{list-style:none;padding:0;margin:1.5rem 0 0;display:flex;gap:2rem;flex-wrap:wrap}
+.auth li b{display:block;font:400 2.4rem var(--black);color:var(--gold2)}.auth li{font-size:1rem}
+
+/* RECENSIONI + CONTATTI */
+.q{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:2rem}
+blockquote{margin:0;padding:1.2rem 1.4rem;border-left:4px solid var(--red);background:var(--parch2);font-style:italic}
+blockquote cite{display:block;margin-top:.6rem;font:500 .8rem var(--cap);letter-spacing:.12em;font-style:normal;color:var(--red)}
+.contact{background:var(--lapis);color:#f3e6c2}
+.contact .head h2{color:var(--gold2)}.contact .cap{color:#f0cb7a}
+form{max-width:560px;margin:0 auto;display:grid;gap:1rem}
+label{display:grid;gap:.3rem;font:500 .8rem var(--cap);letter-spacing:.12em;text-transform:uppercase}
+input,textarea{font:1.15rem var(--serif);padding:.7rem;border:2px solid var(--gold2);background:#f3e6c2;color:#2a1d14}
+textarea{min-height:120px}
+.contact .btn{border-color:var(--gold2);color:#1b120a;background:var(--gold2);justify-self:center;cursor:pointer}
+footer{background:#14100c;color:#c9b78f;text-align:center;padding:2.5rem 1rem;font-size:1rem}
+footer b{display:block;font:400 1.8rem var(--black);color:var(--gold2)}
+
+@media (max-width:760px){.book,.ab{grid-template-columns:1fr;gap:2.5rem}.vol{max-width:260px;margin:0 auto}.por{max-width:240px;margin:0 auto}section{padding:3.5rem 0}.page{text-align:left}}
+@media (prefers-reduced-motion:no-preference){.vol{transition:transform .5s}.vol:hover{transform:rotate(0) translateY(-6px)}}
+</style>
+</head>
+<body>
+<nav id="nav"><div class="w"><b>SIMONE BAROSO</b><button class="tg" id="tg" type="button" aria-label="Apri il menu" aria-expanded="false" aria-controls="menu">☰</button><ul id="menu">
+ <li><a href="#libro">Il romanzo</a></li><li><a href="#sinossi">Sinossi</a></li><li><a href="#mondo">Il mondo</a></li><li><a href="#autore">Autore</a></li><li><a href="#contatti">Contatti</a></li></ul></div></nav>
+<script>
+(function(){var n=document.getElementById('nav'),b=document.getElementById('tg');
+function set(o){n.classList.toggle('open',o);b.setAttribute('aria-expanded',o);b.textContent=o?'✕':'☰';b.setAttribute('aria-label',o?'Chiudi il menu':'Apri il menu')}
+b.addEventListener('click',function(){set(!n.classList.contains('open'))});
+document.getElementById('menu').addEventListener('click',function(e){if(e.target.tagName==='A')set(false)});})();
+</script>
+
+<header class="hero"><div class="w"><div class="frame">
+ <svg class="crest" viewBox="0 0 100 120" aria-hidden="true"><path d="M8 8h84v50c0 34-26 52-42 60C34 110 8 92 8 58z" fill="#1f3a6e" stroke="#b8892b" stroke-width="5"/><path d="M50 8v110M8 50h84" stroke="#b8892b" stroke-width="3"/><circle cx="71" cy="34" r="10" fill="#8c1d18" stroke="#e2b659" stroke-width="2"/><path d="M20 80l22-8 8 22-22 8z" fill="#8c1d18" opacity=".9"/><circle cx="29" cy="30" r="8" fill="none" stroke="#e2b659" stroke-width="3"/></svg>
+ <span class="cap">Romanzo fantasy di Simone Baroso</span>
+ <h1>Arvelan</h1>
+ <div class="cap" style="font-size:1.1rem;color:var(--lapis)">Il marchio di Zargon</div>
+ <div class="orn" aria-hidden="true">❖</div>
+ <p>Nell'Impero delle cinque Virtù, un giovane scopre di essere il figlio di un Paladino discusso e di portare dentro di sé qualcosa che l'Impero vuole spegnere.</p>
+ <a class="btn s" href="#libro">Scopri il romanzo</a><a class="btn" href="#sinossi">Leggi la sinossi</a>
+</div></div></header>
+
+<section id="libro"><div class="w book">
+ <div class="vol" role="img" aria-label="Copertina del romanzo Arvelan. Il marchio di Zargon"><small>SIMONE BAROSO</small><div><svg width="90" height="90" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="44" fill="none" stroke="#e2b659" stroke-width="3"/><path d="M50 14v72M14 50h72M26 26l48 48M74 26L26 74" stroke="#e2b659" stroke-width="2"/><circle cx="50" cy="50" r="12" fill="#8c1d18" stroke="#e2b659" stroke-width="3"/></svg><h3>Arvelan</h3><small>IL MARCHIO DI ZARGON</small></div><small>ROMANZO</small></div>
+ <div>
+  <span class="cap">Il romanzo</span><h2 style="font-size:clamp(2.2rem,5vw,3.4rem);color:var(--lapis);margin:.3rem 0 1rem">Un impero perfetto, un ragazzo che non ci sta dentro</h2>
+  <p>Vrazal vuole essere il suddito ideale di Dagertan, ma sente di non appartenere a quel mondo. Quando una sostanza luminosa lo tocca e gli riempie la mente di visioni, la sua vita diventa una fuga. Il fantasy qui è uno specchio: parla di potere, obbedienza e della natura umana.</p>
+  <div class="tags"><span>Fantasy</span><span>Critica sociale</span><span>Psicologia dei personaggi</span></div>
+  <div class="meta"><div><b>Presentato</b>settembre 2023</div><div><b>Pagine</b>da inserire</div><div><b>Editore</b>da inserire</div><div><b>ISBN</b>da inserire</div></div>
+  <a class="btn s" href="https://www.ilclubdellibro.it/spazio-autori/2844-arvelan-il-marchio-di-zargon-di-simone-baroso.html" rel="noopener">Scheda del libro</a><a class="btn" href="#contatti">Richiedi una copia</a>
+ </div></div></section>
+
+<section class="ext" id="sinossi"><div class="w">
+ <div class="head"><span class="cap">Sinossi</span><h2>La storia</h2></div>
+ <div class="page">
+  <p>L'Impero di Dagertan è potente e ordinato: città monumentali, eserciti sterminati e un culto secolare delle Virtù, cinque precetti che plasmano ogni cittadino. I Paladini, supremi capi militari, ne sono i custodi. Vrazal, figlio di un illustre Comandante, vorrebbe essere un suddito esemplare, ma il servizio militare gli pesa e lo attira ciò che viene da oltre i confini.</p>
+  <p>Poi accade qualcosa. Un contatto con la linfa luminosa dell'albero sacro gli porta visioni sempre più nitide, e scopre di essere figlio di uno dei Paladini più ammirati e discussi della storia. Da quel momento le autorità lo vogliono morto. Fugge con Jilian, un'accolita di Nirvinen, e con Nardo, Capitano deposto e fedele amico del padre.</p>
+  <p>A Singara la città è in rivolta contro l'amministrazione imperiale, e Vrazal incontra Andus Teniar, che mette in dubbio la dottrina ufficiale. Ma le visioni crescono, i Paladini si avvicinano e una creatura senza forma, nata dalla paura primordiale degli uomini, lo attende. Non tutti quelli che lo aiutano sono ciò che sembrano.</p>
+ </div>
+ <p class="note">Sinossi riassunta dalla scheda de Il Club del Libro.</p>
+</div></section>
+
+<section id="mondo"><div class="w">
+ <div class="head"><span class="cap">Il mondo del racconto</span><h2>Persone e luoghi</h2></div>
+ <div class="cards">
+  <article class="card"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 4l22 10v18c0 14-10 22-22 28C20 54 10 46 10 32V14z" fill="none" stroke="var(--gold)" stroke-width="3"/><path d="M32 18v28M22 28h20" stroke="var(--red)" stroke-width="3"/></svg><h3>Vrazal</h3><span class="cap">Il protagonista</span><p>Figlio del Comandante più illustre della capitale. Vuole appartenere, ma qualcosa in lui lo fa sentire straniero.</p></article>
+  <article class="card"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="22" fill="none" stroke="var(--gold)" stroke-width="3"/><path d="M32 14c-8 8-8 28 0 36M32 14c8 8 8 28 0 36" fill="none" stroke="var(--lapis)" stroke-width="3"/></svg><h3>Jilian</h3><span class="cap">L'accolita di Nirvinen</span><p>Cresciuta nel collegio di sole donne che custodisce cultura e riti. Lo salva, ma da che parte sta davvero?</p></article>
+  <article class="card"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M8 52l24-40 24 40z" fill="none" stroke="var(--gold)" stroke-width="3"/><circle cx="32" cy="40" r="5" fill="var(--red)"/></svg><h3>Nardo</h3><span class="cap">Il capitano deposto</span><p>Amico fedele del padre adottivo di Vrazal. Lo accompagna nella fuga fino a Singara.</p></article>
+  <article class="card"><svg viewBox="0 0 64 64" aria-hidden="true"><rect x="14" y="20" width="36" height="30" fill="none" stroke="var(--gold)" stroke-width="3"/><path d="M14 20v-8h8v8M28 20v-8h8v8M42 20v-8h8v8" fill="none" stroke="var(--red)" stroke-width="3"/></svg><h3>Andus Teniar</h3><span class="cap">Il signore di Singara</span><p>Alleato e fomentatore di rivolte. Alimenta i dubbi di Vrazal sulla dottrina dell'Impero.</p></article>
+ </div>
+ <div class="mapbox" style="margin-top:3rem"><svg viewBox="0 0 800 380" role="img" aria-label="Mappa schematica dell'Impero di Dagertan">
+  <rect width="800" height="380" fill="var(--parch2)"/>
+  <path d="M60 230c40-90 120-120 200-100s90-60 190-50 150 60 220 40 70 80 40 140-120 70-200 60-130 40-230 20S30 300 60 230z" fill="var(--parch)" stroke="var(--gold)" stroke-width="3"/>
+  <path d="M120 250c60-30 100 0 150-20M330 150c40 40 80 20 120 70" fill="none" stroke="var(--lapis)" stroke-width="3" stroke-dasharray="2 6"/>
+  <path d="M430 120l16-28 16 28zM470 126l12-20 12 20zM400 128l10-18 10 18z" fill="var(--forest)"/>
+  <rect x="215" y="195" width="26" height="26" fill="var(--red)"/><path d="M215 195v-10h6v6h5v-6h6v6h5v-6h5v10" fill="var(--red)"/>
+  <circle cx="560" cy="250" r="9" fill="var(--lapis)" stroke="var(--gold)" stroke-width="3"/>
+  <text x="228" y="245" text-anchor="middle" font-size="15">LA CAPITALE</text><text x="560" y="280" text-anchor="middle" font-size="15">SINGARA</text><text x="435" y="95" text-anchor="middle" font-size="15">NIRVINEN</text>
+  <g transform="translate(720 70)" stroke="var(--red)" stroke-width="3" fill="none"><circle r="24"/><path d="M0-34V34M-34 0H34"/></g><text x="720" y="28" text-anchor="middle" font-size="16">N</text>
+  <text x="400" y="360" text-anchor="middle" font-size="13" letter-spacing="4">IMPERO DI DAGERTAN · MAPPA SCHEMATICA</text></svg></div>
+</div></section>
+
+<section class="ext"><div class="w">
+ <div class="head"><span class="cap">Metodo</span><h2>Dallo scavo alla pagina</h2></div>
+ <div class="tl">
+  <div><h3>Lo scavo</h3><p>Da archeologo medievalista osservo resti, tracce, oggetti consumati dall'uso. Ogni dettaglio è una domanda.</p></div>
+  <div><h3>Il frammento</h3><p>Un'usanza, un simbolo, un luogo di culto: da qui nasce un personaggio e la sua ferita.</p></div>
+  <div><h3>La ricostruzione</h3><p>Costruisco il mondo con rigore: istituzioni, riti, paure di un tempo, come quelle di Dagertan.</p></div>
+  <div><h3>Il racconto</h3><p>Poi lo rendo fantastico. Il fantasy diventa una lente per criticare la società e studiare la natura umana.</p></div>
+ </div></div></section>
+
+<section class="auth" id="autore"><div class="w ab">
+ <div class="por">Qui la fotografia<br>dell'autore</div>
+ <div><span class="cap">L'autore</span><h2>Simone Baroso</h2>
+  <p>Sono nato a Torino e vivo a Cavour, in provincia di Torino. Mi sono laureato in Beni Culturali all'Università di Torino e mi occupo di archeologia medievale.</p>
+  <p>Scrivo fantasy, ma cerco di prendere le distanze dalla sua classicità e dal puro intrattenimento: uso il genere per criticare la società e per osservare da vicino ciò che siamo.</p>
+  <ul><li><b>Torino</b>luogo di nascita</li><li><b>Beni Culturali</b>laurea, UniTo</li><li><b>Vaèsarèa</b>opera prima</li></ul></div>
+</div></section>
+
+<section><div class="w"><div class="head"><span class="cap">Bibliografia</span><h2>I libri</h2></div>
+ <div class="cards">
+  <article class="card"><h3>Arvelan</h3><span class="cap">Il marchio di Zargon</span><p>Romanzo fantasy. Un giovane, un impero e il segreto che porta dentro.</p></article>
+  <article class="card"><h3>Vaèsarèa</h3><span class="cap">L'Era delle Nebbie</span><p>Romanzo fantasy. L'opera prima di Simone Baroso.</p></article>
+ </div></div></section>
+
+<section class="contact" id="contatti"><div class="w"><div class="head"><span class="cap">Scrivimi</span><h2>Lettere all'autore</h2></div>
+ <form action="mailto:tuaemail@esempio.it" method="post" enctype="text/plain">
+  <label>Nome<input name="nome" required autocomplete="name"></label>
+  <label>Email<input type="email" name="email" required autocomplete="email"></label>
+  <label>Messaggio<textarea name="messaggio" required></textarea></label>
+  <button class="btn" type="submit">Invia il messaggio</button></form></div></section>
+
+<footer><b>Simone Baroso</b>Archeologo · Autore · © 2026 Tutti i diritti riservati</footer>
+</body>
+</html>
