@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="it" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arvelan: Il Marchio di Zargon - Romanzo Dark Fantasy di Simone Baroso</title>
+    <meta name="description" content="Sito ufficiale del romanzo Dark Fantasy 'Arvelan: Il Marchio di Zargon' di Simone Baroso. Scopri il mondo di Dagertan, la lore e acquista il libro.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@500;700;800&family=Spectral:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-bg': '#0A0A0C',
+                        'surface-card': '#18191E',
+                        'accent-blood': '#8B0000',
+                        'accent-crimson': '#DC2626',
+                        'text-secondary': '#C0C0C8',
+                        'text-heading': '#E2E2E8',
+                    },
+                    fontFamily: {
+                        'cinzel-dec': ['"Cinzel Decorative"', 'serif'],
+                        'cinzel': ['Cinzel', 'serif'],
+                        'spectral': ['Spectral', 'serif'],
+                    },
+                    backgroundImage: {
+                        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Custom Styles & Animations -->
+    <style>
+        :root {
+            --bg-primary: #0A0A0C;
+            --bg-surface: #18191E;
+            --color-blood: #8B0000;
+            --color-crimson: #DC2626;
+            --color-text-sec: #C0C0C8;
+            --color-text-head: #E2E2E8;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--color-text-sec);
+            font-family: 'Spectral', serif;
+            overflow-x: hidden;
+        }
+
+        /* Focus States per Accessibilità WCAG AA */
+        a:focus-visible, button:focus-visible, input:focus-visible {
+            outline: 2px solid #DC2626 !important;
+            outline-offset: 3px !important;
+        }
+
+        /* Capilettera Decorato (Drop Cap) */
+        .drop-cap::first-letter {
+            font-family: 'Cinzel Decorative', serif;
+            font-size: 3.8rem;
+            float: left;
+            line-height: 0.8;
+            margin-right: 0.75rem;
+            margin-top: 0.2rem;
+            color: #DC2626;
+            text-shadow: 0 0 10px rgba(139, 0, 0, 0.6);
+        }
+
+        /* Effetti Glow & Bordo Inciso Dark Fantasy */
+        .glow-crimson {
+            box-shadow: 0 0 20px rgba(139, 0, 0, 0.6);
+        }
+
+        .glow-crimson-lg {
+            box-shadow: 0 0 35px rgba(220, 38, 38, 0.4);
+        }
+
+        .border-sharp {
+            border: 1px solid rgba(139, 0, 0, 0.35);
+            transition: all 0.3s ease;
+        }
+
+        .border-sharp:hover {
+            border-color: rgba(220, 38, 38, 0.8);
+            box-shadow: 0 10px 25px -5px rgba(139, 0, 0, 0.4);
+        }
+
+        /* Animazione Nebbia/Fumo per la Hero */
+        .fog-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+            pointer-events: none;
+            opacity: 0.25;
+        }
+
+        .fog-wave {
+            position: absolute;
+            left: 0;
+            width: 200%;
+            height: 100%;
+            background: repeat-x url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><path fill="%2318191E" opacity="0.4" d="M0,150 C300,300 600,0 900,150 C1200,300 1500,0 1800,150 L1800,600 L0,600 Z"/></svg>');
+            animation: fogMove 25s linear infinite;
+        }
+
+        @keyframes fogMove {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* 3D Tilt Card Simulation */
+        .card-3d-wrap {
+            perspective: 1000px;
+        }
+
+        .card-3d {
+            transition: transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.3s ease;
+            transform-style: preserve-3d;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0A0A0C;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2A2B32;
+            border-radius: 4px;
+            border: 1px solid rgba(139, 0, 0, 0.5);
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #8B0000;
+        }
+    </style>
+</head>
+<body class="bg-primary-bg text-text-secondary antialiased selection:bg-accent-blood selection:text-white">
+
+    <!-- 1. HEADER & NAV -->
+    <header class="sticky top-0 z-50 backdrop-blur-md bg-primary-bg/85 border-b border-accent-blood/30 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            
+            <!-- Logo -->
+            <a href="#" class="group flex flex-col justify-center focus:outline-none" aria-label="Arvelan: Torna alla home">
+                <span class="font-cinzel-dec font-black text-2xl sm:text-3xl tracking-widest text-text-heading group-hover:text-accent-crimson transition-colors duration-300">
+                    ARVELAN
+                </span>
+                <span class="font-cinzel text-[9px] sm:text-[10px] tracking-[0.3em] text-accent-crimson uppercase -mt-1 font-bold">
+                    Il Marchio di Zargon
+                </span>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex items-center gap-8" aria-label="Navigazione principale">
+                <a href="#hero" class="font-cinzel text-sm text-text-heading hover:text-accent-crimson transition-colors tracking-wider uppercase font-semibold">Home</a>
+                <a href="#saga" class="font-cinzel text-sm text-text-secondary hover:text-accent-crimson transition-colors tracking-wider uppercase font-semibold">La Saga</a>
+                <a href="#lore" class="font-cinzel text-sm text-text-secondary hover:text-accent-crimson transition-colors tracking-wider uppercase font-semibold">Mondo & Lore</a>
+                <a href="#autore" class="font-cinzel text-sm text-text-secondary hover:text-accent-crimson transition-colors tracking-wider uppercase font-semibold">L'Autore</a>
+                <a href="#newsletter" class="font-cinzel text-sm text-text-secondary hover:text-accent-crimson transition-colors tracking-wider uppercase font-semibold">Schierati</a>
+            </nav>
+
+            <!-- Header CTA Button -->
+            <div class="hidden md:block">
+                <a href="#acquista" class="inline-flex items-center px-5 py-2.5 font-cinzel text-xs uppercase tracking-widest font-bold text-text-heading bg-primary-bg border-2 border-accent-blood hover:bg-accent-blood hover:text-white transition-all duration-300 rounded-sm shadow-md hover:shadow-accent-blood/50">
+                    Acquista Ora
+                </a>
+            </div>
+
+            <!-- Mobile Hamburger Toggle -->
+            <button id="mobile-menu-btn" type="button" class="md:hidden p-2 text-text-heading hover:text-accent-crimson focus:outline-none" aria-expanded="false" aria-controls="mobile-menu" aria-label="Apri menu di navigazione">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path id="hamburger-icon" class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    <path id="close-icon" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Drawer -->
+        <div id="mobile-menu" class="hidden md:hidden bg-surface-card border-b border-accent-blood/40 px-4 pt-3 pb-6 space-y-4">
+            <a href="#hero" class="mobile-nav-link block font-cinzel text-base text-text-heading hover:text-accent-crimson py-2 border-b border-white/5">Home</a>
+            <a href="#saga" class="mobile-nav-link block font-cinzel text-base text-text-secondary hover:text-accent-crimson py-2 border-b border-white/5">La Saga</a>
+            <a href="#lore" class="mobile-nav-link block font-cinzel text-base text-text-secondary hover:text-accent-crimson py-2 border-b border-white/5">Mondo & Lore</a>
+            <a href="#autore" class="mobile-nav-link block font-cinzel text-base text-text-secondary hover:text-accent-crimson py-2 border-b border-white/5">L'Autore</a>
+            <a href="#newsletter" class="mobile-nav-link block font-cinzel text-base text-text-secondary hover:text-accent-crimson py-2 border-b border-white/5">Schierati</a>
+            <div class="pt-2">
+                <a href="#acquista" class="mobile-nav-link block text-center w-full py-3 font-cinzel text-sm uppercase tracking-widest font-bold text-white bg-accent-blood hover:bg-accent-crimson transition-colors rounded-sm">
+                    Acquista il Libro
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 2. HERO BANNER -->
+    <section id="hero" class="relative min-h-[calc(100vh-5rem)] flex items-center pt-8 pb-16 overflow-hidden">
+        <!-- Ambient fog & background glow -->
+        <div class="fog-container">
+            <div class="fog-wave"></div>
+        </div>
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-accent-blood/10 rounded-full blur-[120px] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+                
+                <!-- Left Column: Copy & CTAs -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-accent-blood/20 border border-accent-blood/50 text-accent-crimson font-cinzel text-xs tracking-widest uppercase font-semibold">
+                        <span class="w-2 h-2 rounded-full bg-accent-crimson animate-ping"></span>
+                        La Saga Dark Fantasy di Simone Baroso
+                    </div>
+
+                    <h1 class="font-cinzel-dec font-black text-3xl sm:text-5xl xl:text-6xl text-text-heading leading-tight tracking-wide">
+                        Arvelan: <br>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent-crimson via-red-500 to-stone-200">
+                            Il Marchio di Zargon
+                        </span>
+                    </h1>
+
+                    <p class="font-spectral text-lg sm:text-xl text-text-secondary max-w-2xl mx-auto lg:mx-0 leading-relaxed italic">
+                        "Tra intrighi di potere, armate imperiali e l'ombra di un marchio indissolubile. Quando il sangue incide la carne, il destino dell'impero di Dagertan si compie."
+                    </p>
+
+                    <!-- CTAs -->
+                    <div class="pt-4 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                        <a href="#acquista" class="w-full sm:w-auto px-8 py-4 bg-accent-blood hover:bg-accent-crimson text-white font-cinzel font-bold text-sm tracking-widest uppercase rounded-sm shadow-lg hover:shadow-accent-crimson/50 transition-all duration-300 text-center border border-red-500/30">
+                            Acquista il Libro
+                        </a>
+                        <button id="open-sample-btn" type="button" class="w-full sm:w-auto px-8 py-4 bg-surface-card hover:bg-white/5 text-text-heading font-cinzel font-semibold text-sm tracking-widest uppercase rounded-sm border border-stone-700 hover:border-accent-crimson transition-all duration-300 text-center flex items-center justify-center gap-2">
+                            <svg class="w-4 h-4 text-accent-crimson" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                            </svg>
+                            Leggi l'Estratto PDF
+                        </button>
+                    </div>
+
+                    <!-- Micro details -->
+                    <div class="pt-4 flex items-center justify-center lg:justify-start gap-6 text-xs font-cinzel text-text-secondary/70">
+                        <span>✦ 583 Pagine</span>
+                        <span>✦ Edizione Integrale</span>
+                        <span>✦ Dark Fantasy / Medieval Horror</span>
+                    </div>
+                </div>
+
+                <!-- Right Column: Interactive 3D Book Mockup -->
+                <div class="lg:col-span-5 flex justify-center items-center card-3d-wrap">
+                    <div id="book-card" class="card-3d relative w-64 sm:w-80 h-[380px] sm:h-[480px] rounded-r-md bg-gradient-to-tr from-stone-900 via-stone-800 to-black border-r-4 border-b-4 border-accent-blood/80 shadow-2xl group cursor-pointer">
+                        
+                        <!-- Glow effect backplate -->
+                        <div class="absolute -inset-2 bg-gradient-to-r from-accent-blood to-accent-crimson rounded-lg blur-lg opacity-40 group-hover:opacity-80 transition duration-500 -z-10"></div>
+                        
+                        <!-- Book Cover Content -->
+                        <div class="absolute inset-0 p-6 flex flex-col justify-between border border-stone-700/60 rounded-r-md bg-gradient-to-b from-black/80 via-surface-card/90 to-black overflow-hidden">
+                            <!-- Texture overlay -->
+                            <div class="absolute inset-0 bg-[radial-gradient(#8b0000_1px,transparent_1px)] [background-size:16px_16px] opacity-20"></div>
+
+                            <div class="relative z-10 text-center space-y-2 pt-4">
+                                <span class="font-cinzel text-xs uppercase tracking-[0.3em] text-accent-crimson font-bold block">Simone Baroso</span>
+                                <div class="w-12 h-0.5 bg-accent-blood mx-auto my-2"></div>
+                            </div>
+
+                            <!-- Central Graphic Artwork Mockup -->
+                            <div class="relative z-10 my-auto text-center py-6 border-y border-accent-blood/30 bg-black/40 backdrop-blur-sm">
+                                <div class="w-16 h-16 mx-auto mb-3 text-accent-crimson opacity-90">
+                                    <svg viewBox="0 0 100 100" fill="currentColor">
+                                        <polygon points="50,10 90,90 10,90" fill="none" stroke="currentColor" stroke-width="4"/>
+                                        <circle cx="50" cy="60" r="20" fill="none" stroke="currentColor" stroke-width="3"/>
+                                        <path d="M50 20 L50 80 M25 65 L75 65" stroke="currentColor" stroke-width="3"/>
+                                    </svg>
+                                </div>
+                                <h2 class="font-cinzel-dec text-2xl sm:text-3xl font-black text-text-heading tracking-wider">
+                                    ARVELAN
+                                </h2>
+                                <p class="font-cinzel text-xs tracking-widest text-accent-crimson mt-1 font-bold">
+                                    IL MARCHIO DI ZARGON
+                                </p>
+                            </div>
+
+                            <div class="relative z-10 text-center pb-2">
+                                <span class="font-cinzel text-[10px] tracking-widest text-text-secondary/60 uppercase block">Romanzo</span>
+                            </div>
+                        </div>
+
+                        <!-- Spine effect left edge -->
+                        <div class="absolute left-0 top-0 bottom-0 w-3 bg-gradient-to-r from-stone-950 to-stone-800 border-r border-white/10"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. SEZIONE LORE & AMBIENTAZIONE -->
+    <section id="lore" class="py-20 bg-surface-card/40 border-y border-stone-800/80 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+                <h2 class="font-cinzel text-xs uppercase tracking-[0.3em] text-accent-crimson font-bold">Benvenuto a Dagertan</h2>
+                <p class="font-cinzel-dec text-2xl sm:text-4xl text-text-heading font-bold">
+                    Un Mondo Sotto il Giogo della Nebbia e del Sangue
+                </p>
+                <div class="w-24 h-1 bg-gradient-to-r from-transparent via-accent-blood to-transparent mx-auto"></div>
+            </div>
+
+            <!-- Grid 3 Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Card 1 -->
+                <article class="bg-surface-card p-8 border-sharp rounded-sm flex flex-col justify-between group hover:-translate-y-2 transition-all duration-300">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 rounded-sm bg-accent-blood/10 border border-accent-blood/40 flex items-center justify-center text-accent-crimson group-hover:bg-accent-blood group-hover:text-white transition-colors duration-300">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                            </svg>
+                        </div>
+                        <h3 class="font-cinzel text-xl font-bold text-text-heading group-hover:text-accent-crimson transition-colors">
+                            I Militi Imperiali
+                        </h3>
+                        <p class="font-spectral text-text-secondary text-base leading-relaxed">
+                            Veterani addestrati nell'acciaio e nella disciplina ferrea. L'armata dell'Imperatore marcia attraverso le brughiere desolate per imporre un ordine che ha il sapore della condanna.
+                        </p>
+                    </div>
+                    <div class="pt-6 border-t border-stone-800 mt-6">
+                        <span class="font-cinzel text-xs text-accent-crimson tracking-wider font-semibold">Le Legioni di Zargon →</span>
+                    </div>
+                </article>
+
+                <!-- Card 2 -->
+                <article class="bg-surface-card p-8 border-sharp rounded-sm flex flex-col justify-between group hover:-translate-y-2 transition-all duration-300">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 rounded-sm bg-accent-blood/10 border border-accent-blood/40 flex items-center justify-center text-accent-crimson group-hover:bg-accent-blood group-hover:text-white transition-colors duration-300">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5m0 0h4m-4 0V11m0 0h4"/>
+                            </svg>
+                        </div>
+                        <h3 class="font-cinzel text-xl font-bold text-text-heading group-hover:text-accent-crimson transition-colors">
+                            Gli Intrighi Politici
+                        </h3>
+                        <p class="font-spectral text-text-secondary text-base leading-relaxed">
+                            Nelle corti d'ombra di Dagertan, le parole uccidono più delle lame. Casate nobiliari in rovina stringono patti proibiti pur di rivendicare il trono spezzato.
+                        </p>
+                    </div>
+                    <div class="pt-6 border-t border-stone-800 mt-6">
+                        <span class="font-cinzel text-xs text-accent-crimson tracking-wider font-semibold">I Palazzi di Potere →</span>
+                    </div>
+                </article>
+
+                <!-- Card 3 -->
+                <article class="bg-surface-card p-8 border-sharp rounded-sm flex flex-col justify-between group hover:-translate-y-2 transition-all duration-300">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 rounded-sm bg-accent-blood/10 border border-accent-blood/40 flex items-center justify-center text-accent-crimson group-hover:bg-accent-blood group-hover:text-white transition-colors duration-300">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                            </svg>
+                        </div>
+                        <h3 class="font-cinzel text-xl font-bold text-text-heading group-hover:text-accent-crimson transition-colors">
+                            Creature e Misteri
+                        </h3>
+                        <p class="font-spectral text-text-secondary text-base leading-relaxed">
+                            Antichi rituali dimenticati risvegliano entità oscure tra le montagne piovose. Il Marchio non è solo una cicatrice: è una maledizione che richiama l'abisso.
+                        </p>
+                    </div>
+                    <div class="pt-6 border-t border-stone-800 mt-6">
+                        <span class="font-cinzel text-xs text-accent-crimson tracking-wider font-semibold">Bestiario Oscuro →</span>
+                    </div>
+                </article>
+
+            </div>
+
+            <!-- Lore Navigation Arrow Link -->
+            <div class="mt-12 text-center">
+                <a href="#saga" class="inline-flex items-center gap-3 font-cinzel text-sm text-text-heading hover:text-accent-crimson tracking-widest uppercase font-bold group transition-colors">
+                    <span>Esplora la Mappa e la Lore di Dagertan</span>
+                    <span class="text-accent-crimson group-hover:translate-x-2 transition-transform duration-300 text-lg">→</span>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 4. SEZIONE SCHEDA LIBRO & DETTAGLI FISICI -->
+    <section id="saga" class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+                
+                <!-- Sinossi Ufficiale -->
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="space-y-2">
+                        <span class="font-cinzel text-xs uppercase tracking-[0.3em] text-accent-crimson font-bold block">Scheda dell'Opera</span>
+                        <h2 class="font-cinzel-dec text-3xl sm:text-4xl text-text-heading font-bold">
+                            Sinossi Ufficiale
+                        </h2>
+                    </div>
+
+                    <div class="bg-surface-card p-6 sm:p-8 rounded-sm border border-stone-800 space-y-4">
+                        <p class="font-spectral text-base sm:text-lg text-text-secondary leading-relaxed drop-cap">
+                            A Dagertan la pace è soltanto un'illusione alimentata dalla cenere. Quando il giovane Arvelan viene marchiato contro la propria volontà da un simbolo ancestrale legato alle forze di Zargon, la sua esistenza viene stravolta. Perseguitato dai Militi Imperiali e braccato da creature che non dovrebbero appartenere al mondo dei vivi, dovrà addentrarsi nel cuore di intrighi politici letali.
+                        </p>
+                        <p class="font-spectral text-base sm:text-lg text-text-secondary leading-relaxed">
+                            Ogni passo verso la verità richiede un tributo di sangue. Tra alleanze precarie e tradimenti inaspettati, Arvelan comprenderà che il marchio non è soltanto una condanna, ma la chiave per decidere le sorti dell'intero continente prima che l'oscurità eterna inghiotta ogni cosa.
+                        </p>
+                    </div>
+
+                    <!-- Author Spotlight -->
+                    <div id="autore" class="p-6 bg-surface-card/60 border-l-4 border-accent-blood rounded-r-sm space-y-2">
+                        <h3 class="font-cinzel text-lg font-bold text-text-heading">L'Autore: Simone Baroso</h3>
+                        <p class="font-spectral text-sm text-text-secondary leading-relaxed">
+                            Scrittore ed esploratore di mondi fantastici oscuri. Con "Arvelan: Il Marchio di Zargon", Simone Baroso intreccia una narrazione cruda, ritmata e ricca di dettagli psicologici, regalando agli amanti del Dark Fantasy un'epopea indimenticabile.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Dettagli Tecnici & Store Links -->
+                <div id="acquista" class="lg:col-span-5 space-y-8">
+                    
+                    <!-- Specifications Box -->
+                    <div class="bg-surface-card p-6 rounded-sm border-sharp space-y-6">
+                        <h3 class="font-cinzel text-lg font-bold text-text-heading border-b border-stone-800 pb-3 flex items-center justify-between">
+                            <span>Dettagli Edizione</span>
+                            <span class="text-xs font-normal text-accent-crimson uppercase">Disponibile</span>
+                        </h3>
+
+                        <dl class="grid grid-cols-2 gap-4 text-sm font-spectral">
+                            <div>
+                                <dt class="font-cinzel text-xs text-text-secondary/70 uppercase">Pagine</dt>
+                                <dd class="font-bold text-text-heading text-base">583 Pagine</dd>
+                            </div>
+                            <div>
+                                <dt class="font-cinzel text-xs text-text-secondary/70 uppercase">Genere</dt>
+                                <dd class="font-bold text-text-heading text-base">Dark Fantasy / Horror</dd>
+                            </div>
+                            <div>
+                                <dt class="font-cinzel text-xs text-text-secondary/70 uppercase">Formati</dt>
+                                <dd class="font-bold text-text-heading text-base">Flessibile, Rigida, eBook</dd>
+                            </div>
+                            <div>
+                                <dt class="font-cinzel text-xs text-text-secondary/70 uppercase">Lingua</dt>
+                                <dd class="font-bold text-text-heading text-base">Italiano</dd>
+                            </div>
+                            <div class="col-span-2">
+                                <dt class="font-cinzel text-xs text-text-secondary/70 uppercase">ISBN Ufficiale</dt>
+                                <dd class="font-mono text-xs text-accent-crimson tracking-wider mt-0.5">979-12-80000-00-0</dd>
+                            </div>
+                        </dl>
+                    </div>
+
+                    <!-- Store Purchase Badges -->
+                    <div class="space-y-4">
+                        <h3 class="font-cinzel text-sm font-bold text-text-heading uppercase tracking-widest text-center lg:text-left">
+                            Ordina dai Principali Store
+                        </h3>
+
+                        <div class="grid grid-cols-2 gap-3">
+                            <a href="#" target="_blank" rel="noopener noreferrer" class="p-3 bg-surface-card hover:bg-accent-blood/20 border border-stone-700 hover:border-accent-blood rounded-sm text-center font-cinzel text-xs font-bold text-text-heading hover:text-accent-crimson transition-all duration-300 flex items-center justify-center gap-2">
+                                <span>Amazon</span>
+                            </a>
+                            <a href="#" target="_blank" rel="noopener noreferrer" class="p-3 bg-surface-card hover:bg-accent-blood/20 border border-stone-700 hover:border-accent-blood rounded-sm text-center font-cinzel text-xs font-bold text-text-heading hover:text-accent-crimson transition-all duration-300 flex items-center justify-center gap-2">
+                                <span>IBS.it</span>
+                            </a>
+                            <a href="#" target="_blank" rel="noopener noreferrer" class="p-3 bg-surface-card hover:bg-accent-blood/20 border border-stone-700 hover:border-accent-blood rounded-sm text-center font-cinzel text-xs font-bold text-text-heading hover:text-accent-crimson transition-all duration-300 flex items-center justify-center gap-2">
+                                <span>La Feltrinelli</span>
+                            </a>
+                            <a href="#" target="_blank" rel="noopener noreferrer" class="p-3 bg-surface-card hover:bg-accent-blood/20 border border-stone-700 hover:border-accent-blood rounded-sm text-center font-cinzel text-xs font-bold text-text-heading hover:text-accent-crimson transition-all duration-300 flex items-center justify-center gap-2">
+                                <span>Mondadori Store</span>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. SEZIONE NEWSLETTER ("UNISCITI ALLE SCHIERE") -->
+    <section id="newsletter" class="py-20 relative overflow-hidden">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            
+            <div class="bg-surface-card p-8 sm:p-12 rounded-sm border-2 border-accent-blood/60 shadow-2xl relative">
+                <!-- Corner metallic accents -->
+                <div class="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-accent-crimson"></div>
+                <div class="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-accent-crimson"></div>
+                <div class="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-accent-crimson"></div>
+                <div class="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-accent-crimson"></div>
+
+                <div class="text-center space-y-4 mb-8">
+                    <span class="font-cinzel text-xs uppercase tracking-[0.3em] text-accent-crimson font-bold block">Unisciti alle Schiere</span>
+                    <h2 class="font-cinzel-dec text-2xl sm:text-4xl font-bold text-text-heading">
+                        Reclutati nella Legione di Simone Baroso
+                    </h2>
+                    <p class="font-spectral text-base sm:text-lg text-text-secondary max-w-xl mx-auto">
+                        Ricevi in anteprima capitoli inediti, la mappa ad alta risoluzione di Dagertan e aggiornamenti sui prossimi volumi.
+                    </p>
+                </div>
+
+                <!-- Newsletter Form -->
+                <form id="newsletter-form" class="max-w-lg mx-auto space-y-4">
+                    <div class="flex flex-col sm:flex-row gap-3">
+                        <div class="relative flex-1">
+                            <input type="email" id="email-input" required placeholder="Inserisci la tua email..." class="w-full px-4 py-3.5 bg-primary-bg border border-stone-700 rounded-sm text-text-heading placeholder-text-secondary/50 font-spectral focus:border-accent-crimson focus:outline-none transition-colors" aria-label="Indirizzo Email per Newsletter">
+                        </div>
+                        <button type="submit" class="px-8 py-3.5 bg-accent-blood hover:bg-accent-crimson text-white font-cinzel font-bold text-sm tracking-widest uppercase rounded-sm transition-all duration-300 glow-crimson hover:scale-[1.02]">
+                            Giura Fedeltà
+                        </button>
+                    </div>
+                    <!-- Feedback Message Container -->
+                    <div id="newsletter-feedback" class="hidden text-center text-sm font-cinzel tracking-wider p-3 rounded-sm"></div>
+                </form>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 6. FOOTER -->
+    <footer class="bg-primary-bg border-t border-stone-800/80 py-12 text-sm font-spectral">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+            
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                <!-- Footer Brand -->
+                <div class="text-center md:text-left">
+                    <span class="font-cinzel-dec font-bold text-xl text-text-heading block tracking-widest">ARVELAN</span>
+                    <span class="font-cinzel text-xs text-text-secondary/60">Sito Ufficiale della Saga Dark Fantasy</span>
+                </div>
+
+                <!-- Social SVG Links -->
+                <div class="flex items-center gap-6 text-text-secondary">
+                    <!-- Instagram -->
+                    <a href="#" class="hover:text-accent-crimson transition-colors p-2" aria-label="Profilo Instagram dell'Autore">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                        </svg>
+                    </a>
+                    <!-- Facebook -->
+                    <a href="#" class="hover:text-accent-crimson transition-colors p-2" aria-label="Pagina Facebook dell'Autore">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/>
+                        </svg>
+                    </a>
+                    <!-- Goodreads -->
+                    <a href="#" class="hover:text-accent-crimson transition-colors p-2" aria-label="Scheda Goodreads di Arvelan">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M11.43 14.832c-1.87 0-3.37-1.38-3.37-3.5 0-2.12 1.5-3.5 3.37-3.5 1.87 0 3.33 1.38 3.33 3.5 0 2.12-1.46 3.5-3.33 3.5zm7.32-8.312v10.98c0 3.812-2.3 5.92-5.71 5.92-3.08 0-5.06-1.63-5.6-3.41l2.31-.96c.35.9 1.31 1.85 3.24 1.85 2.17 0 3.42-1.28 3.42-3.42v-.93h-.11c-.65 1.01-1.92 1.7-3.53 1.7-3.32 0-6.09-2.6-6.09-6.31 0-3.76 2.82-6.38 6.14-6.38 1.63 0 2.9.71 3.5 1.68h.11v-1.37h2.42z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="border-t border-stone-800/60 pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-text-secondary/60 gap-4">
+                <p>&copy; 2026 Simone Baroso. Tutti i diritti riservati.</p>
+                <div class="flex gap-6">
+                    <a href="#" class="hover:text-accent-crimson transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-accent-crimson transition-colors">Termini & Condizioni</a>
+                    <span class="text-accent-crimson font-cinzel">✦ Dark Fantasy Editorial</span>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- MODAL ESTRATTO PDF -->
+    <div id="sample-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <div class="bg-surface-card border-2 border-accent-blood max-w-lg w-full p-6 sm:p-8 rounded-sm shadow-2xl space-y-6 relative translate-y-4 transition-transform duration-300" id="modal-box">
+            
+            <button id="close-modal-btn" type="button" class="absolute top-4 right-4 text-text-secondary hover:text-accent-crimson focus:outline-none p-1" aria-label="Chiudi finestra modal">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+            </button>
+
+            <div class="space-y-2">
+                <span class="font-cinzel text-xs text-accent-crimson uppercase tracking-widest font-bold">Anteprima Promozionale</span>
+                <h3 id="modal-title" class="font-cinzel-dec text-2xl font-bold text-text-heading">
+                    Scarica i Primi 3 Capitoli
+                </h3>
+                <p class="font-spectral text-sm text-text-secondary">
+                    Immergiti immediatamente nell'atmosfera di Dagertan. Scarica gratuitamente l'estratto in formato PDF pronto da leggere su ogni dispositivo.
+                </p>
+            </div>
+
+            <div class="p-4 bg-primary-bg/80 border border-stone-800 rounded-sm flex items-center gap-4">
+                <div class="w-10 h-10 rounded bg-accent-blood/20 flex items-center justify-center text-accent-crimson flex-shrink-0">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+                    </svg>
+                </div>
+                <div>
+                    <span class="font-cinzel text-xs text-text-heading font-bold block">Arvelan_Estratto_Ufficiale.pdf</span>
+                    <span class="font-spectral text-xs text-text-secondary/60">Dimensione: 2.4 MB • PDF Pubblico</span>
+                </div>
+            </div>
+
+            <div class="flex gap-3 pt-2">
+                <a href="#" onclick="alert('Download dell\'estratto PDF avviato con successo!'); return false;" class="flex-1 py-3 bg-accent-blood hover:bg-accent-crimson text-white font-cinzel text-xs uppercase tracking-widest font-bold text-center rounded-sm transition-colors shadow-md">
+                    Scarica Ora
+                </a>
+                <button id="cancel-modal-btn" type="button" class="px-5 py-3 bg-stone-800 hover:bg-stone-700 text-text-heading font-cinzel text-xs uppercase tracking-widest font-semibold rounded-sm transition-colors">
+                    Chiudi
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // --- 1. Mobile Menu Logic ---
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const hamburgerIcon = document.getElementById('hamburger-icon');
+            const closeIcon = document.getElementById('close-icon');
+            const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+
+            function toggleMenu() {
+                const isExpanded = mobileMenuBtn.getAttribute('aria-expanded') === 'true';
+                mobileMenuBtn.setAttribute('aria-expanded', !isExpanded);
+                mobileMenu.classList.toggle('hidden');
+                hamburgerIcon.classList.toggle('hidden');
+                closeIcon.classList.toggle('hidden');
+            }
+
+            mobileMenuBtn.addEventListener('click', toggleMenu);
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        toggleMenu();
+                    }
+                });
+            });
+
+
+            // --- 2. Interactive 3D Card Tilt Effect ---
+            const card = document.getElementById('book-card');
+            if (card) {
+                const container = card.parentElement;
+
+                container.addEventListener('mousemove', (e) => {
+                    const rect = container.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    
+                    const rotateX = ((y - centerY) / centerY) * -12;
+                    const rotateY = ((x - centerX) / centerX) * 12;
+
+                    card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.03, 1.03, 1.03)`;
+                });
+
+                container.addEventListener('mouseleave', () => {
+                    card.style.transform = 'rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+                });
+            }
+
+
+            // --- 3. Modal Estratto PDF Logic ---
+            const openModalBtn = document.getElementById('open-sample-btn');
+            const closeModalBtn = document.getElementById('close-modal-btn');
+            const cancelModalBtn = document.getElementById('cancel-modal-btn');
+            const sampleModal = document.getElementById('sample-modal');
+            const modalBox = document.getElementById('modal-box');
+
+            function openModal() {
+                sampleModal.classList.remove('opacity-0', 'pointer-events-none');
+                sampleModal.classList.add('opacity-100');
+                modalBox.classList.remove('translate-y-4');
+                modalBox.classList.add('translate-y-0');
+            }
+
+            function closeModal() {
+                sampleModal.classList.remove('opacity-100');
+                sampleModal.classList.add('opacity-0', 'pointer-events-none');
+                modalBox.classList.remove('translate-y-0');
+                modalBox.classList.add('translate-y-4');
+            }
+
+            if (openModalBtn) openModalBtn.addEventListener('click', openModal);
+            if (closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
+            if (cancelModalBtn) cancelModalBtn.addEventListener('click', closeModal);
+
+            sampleModal.addEventListener('click', (e) => {
+                if (e.target === sampleModal) closeModal();
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && !sampleModal.classList.contains('opacity-0')) {
+                    closeModal();
+                }
+            });
+
+
+            // --- 4. Interactive Newsletter Form Logic ---
+            const newsletterForm = document.getElementById('newsletter-form');
+            const emailInput = document.getElementById('email-input');
+            const feedbackMsg = document.getElementById('newsletter-feedback');
+
+            if (newsletterForm) {
+                newsletterForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    const email = emailInput.value.trim();
+
+                    if (email) {
+                        feedbackMsg.classList.remove('hidden', 'bg-red-900/40', 'text-red-300', 'border-red-700');
+                        feedbackMsg.classList.add('bg-accent-blood/30', 'text-text-heading', 'border', 'border-accent-crimson');
+                        feedbackMsg.innerHTML = `✦ Benvenuto nella legione! La conferma è stata inviata a <strong class="text-accent-crimson">${email}</strong>.`;
+                        
+                        emailInput.value = '';
+                        
+                        setTimeout(() => {
+                            feedbackMsg.classList.add('hidden');
+                        }, 7000);
+                    }
+                });
+            }
+
+        });
+    </script>
+</body>
+</html>
